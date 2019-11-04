@@ -286,6 +286,14 @@ console.log(restar(numA, numB));
 // Consejo: Sabías que en vez de pasar los números directamente a tu función podés crear variables con esos números
 // y pasarlos como parámetros? Probalo!
 
+// let edadDelUsuario = prompt('Que edad tenes?', '30')
+
+function saludar(nombre) {
+  return 'Hola ' + nombre + '!';
+}
+let nombreDelUsuario = prompt('Como te llamas?')
+console.log(saludar(nombreDelUsuario));
+
 // Consejo: Dejá las funciones como están, no las comentes, las vamos a usar de nuevo.
 
 /*
