@@ -21,7 +21,7 @@
 // Preguntar el salario mensual y calcular el anual
 // diario... semanal, por hora. etc.
 
-function calcularSalarioAnual(salarioMensual) {
+/*function calcularSalarioAnual(salarioMensual) {
   return Number((salarioMensual * 12).toFixed(2));
 }
 
@@ -39,17 +39,17 @@ function calcularSalarioDiario(salarioAnual) {
 
 function calcularSalarioPorHora(salarioDiario) {
   return Number((salarioDiario / 24).toFixed(2));
-}
+}*/
 
-let salarioAnual = Number(prompt('Cuanto ganas por año?'));
-let salarioPorMes = Number(prompt('Cuanto ganas por mes?'));
+/*let salarioAnual = Number(prompt('Cuanto ganas por año?'));
+let salarioPorMes = Number(prompt('Cuanto ganas por mes?'));*/
 
-console.log('Vos ganas por mes $' + calcularSalarioMensual(salarioAnual));
+/*console.log('Vos ganas por mes $' + calcularSalarioMensual(salarioAnual));
 console.log('Vos ganas por año $' + calcularSalarioAnual(salarioPorMes));
 console.log('Vos ganas por semana $' + calcularSalarioSemanal(salarioAnual));
 let sueldoDiario = calcularSalarioDiario(salarioAnual);
 console.log('Vos ganas por dia $' + sueldoDiario);
-console.log('Vos ganas por hora $' + calcularSalarioPorHora(sueldoDiario));
+console.log('Vos ganas por hora $' + calcularSalarioPorHora(sueldoDiario));*/
 
 /// SCOPE
 
@@ -61,25 +61,27 @@ console.log('Vos ganas por hora $' + calcularSalarioPorHora(sueldoDiario));
 // console.log(mensaje); //Hola, mundo
 
 // Y con let?
-// let mensaje = 'Hola, mundo';
 // console.log(mensaje); //error
+// let mensaje = 'Hola, mundo';
+
 
 // function hoisting
 
-/*
-pruebaHoisting(); //funciona!
+/*pruebaHoisting(); //funciona!
 function pruebaHoisting(){
-    console.log('prueba');
-}
-//pruebaHoisting();
-*/
+    console.log('prueba');
+}*/
+// pruebaHoisting();
 
-/*
 var a = 1; //global
 let b = 2; //global
+let z;
 
 function prueba(c) { //c es un parámetro de la función prueba. LOCAL.
     let d = 4; //local a la función
+    let z = 5;
+
+    console.log(z);
 
     if(c === 3){
         var e = 5; // por hoisting termina siendo local a la función
@@ -105,8 +107,8 @@ prueba(3);
 
 console.log('a vale: ' + a); // 1
 console.log('b vale: ' + b); // 2
+console.log(z);
 // console.log('c vale: ' + c); // error
 // console.log('d vale: ' + d); // error
 // console.log('e vale: ' + e); // error
 // console.log('f vale: ' + f); // error
-*/
