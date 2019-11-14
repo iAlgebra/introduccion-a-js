@@ -40,7 +40,7 @@ if (edadUsuario === 0) { // Number('') y Number(null) da 0
   console.log('Tenes que ingresar tu edad');
 } else if (isNaN(edadUsuario)) { // si escribe cualquier otra cosa diferente de un integer
   console.log('Ingresa por favor un numero en digitos');
-}else if (edadUsuario === MI_EDAD) {
+} else if (edadUsuario === MI_EDAD) {
   console.log('Tenemos la misma edad!');
 } else if (edadUsuario > MI_EDAD) {
   console.log('Sos mas grande que yo');
@@ -62,15 +62,21 @@ const tieneDocumento = (prompt('Tenes el DNI?', 'SI / NO') || '').toLowerCase();
 function bouncer(poseeDni) {
   if (poseeDni === 'si') {
     const edadUsuario = Number(prompt('cuantos años tenes?'));
-    if (edadUsuario >= 18) {
+    if (edadUsuario === 0) { // Number(null) && Number('') --> 0
+      console.log('Tenes que ingresar tu edad');
+    } else if (isNaN(edadUsuario)) {
+      console.log('No entendi. Ingresa por favor tu edad en digitos');
+    } else if (edadUsuario >= 18) {
       console.log('Podes pasar!');
-    } else {
+    } else if (edadUsuario < 18) {
       console.log('Sos menor, volvete a tu casa!');
     }
   } else if (poseeDni === 'no') {
     console.log('No podes entrar hasta que traigas tu documento');
+  } else if (poseeDni === '') {
+    console.log('Me tenes que contestar algo');
   } else {
-    console.log('No te entendi, perdona!');
+    console.log('Perdona, no entendi la respuesta');
   }
 }
 
