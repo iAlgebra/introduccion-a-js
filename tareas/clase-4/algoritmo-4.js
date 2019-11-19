@@ -12,7 +12,7 @@ Desafío de programación #4: Imprimí todas las tablas de multiplicación del 1
 */
 
 function printTablesOneToNine() {
-  for(let i = 1; i <= 9; i++) {
+  for (let i = 1; i <= 9; i++) {
     for (let j = 0; j <= 10; j++) {
       console.log(i + ' x ' + j + ' = ' + i * j);
     }

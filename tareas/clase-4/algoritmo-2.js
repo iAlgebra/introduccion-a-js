@@ -12,7 +12,7 @@ Desafìo de programación  #2: Imprimí los números impares del 1 al 100
 // }
 
 function printOddNumbers() {
-  for (let num = 1; num <= 100; num+=2) {
+  for (let num = 1; num <= 100; num += 2) {
     console.log(num);
   }
 }

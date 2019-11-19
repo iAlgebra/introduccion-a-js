@@ -8,7 +8,7 @@ Desafío de programación #3: Imprimí la tabla de multiplicación del 7
 
 function printTable7(num) {
   const text = num + ' x ';
-  for(let i = 0; i <= 10; i++) {
+  for (let i = 0; i <= 10; i++) {
     console.log(text + i + ' = ' + num * i);
   }
 }
