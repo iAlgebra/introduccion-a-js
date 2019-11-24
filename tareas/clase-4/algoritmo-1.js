@@ -5,10 +5,14 @@ Resultado: 10 9 8 7 6 5 4 3 2 1
 
 function printFromOneToTen() {
   let num = 10;
+  let list = [];
   while (num > 0) {
-    console.log(num);
+    list.push(num);
     num--;
   }
+  return list;
 }
 
-printFromOneToTen();
+console.assert(JSON.stringify(printFromOneToTen()) ===
+    JSON.stringify([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]),
+    'Debe mostrar un array conteniendo los numeros del 10 al 1');
