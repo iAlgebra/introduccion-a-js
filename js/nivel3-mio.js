@@ -173,8 +173,7 @@ for (let i = 0; i < mediaLinks.length; i++) {
 // TAREA: Obtené el contenido de nuestro elemento 'h1'
 // y utilizá console.log para mostrarlo.
 
-const h1Text = document.querySelector('h1').textContent;
-console.log(h1Text);
+console.log($ourTitle.textContent);
 
 /*
     Editar el contenido de la página
@@ -192,7 +191,7 @@ console.log(h1Text);
 
 // TAREA: Hagamos un nuevo título! Cambiá el contenido de nuestro 'h1' y ponele lo que quieras.
 
-$ourTitle.textContent = 'Chau!';
+$ourTitle.textContent = 'Hola, que tal?!';
 
 /*
     Editando atributos
@@ -207,6 +206,8 @@ $ourTitle.textContent = 'Chau!';
 */
 
 // TAREA: Actualizá el valor del atributo 'src' de nuestra etiqueta 'img' a "img/kittens.jpeg".
+
+document.querySelector('img').src = 'img/kittens.jpeg';
 
 /*
     Editando estilos
@@ -227,6 +228,8 @@ $ourTitle.textContent = 'Chau!';
 */
 
 // Tarea: Obtené cualquier elemento de la página y cambiale algunos estilos.
+
+document.querySelector('p').style.textAlign = 'center';
 
 /*
    Creando nuevos nodos (Elementos)
@@ -252,6 +255,10 @@ $ourTitle.textContent = 'Chau!';
 //       en nuestra cabecera.
 //
 // P.S. También les podés dar estilos al nuevo nodo que creaste.
+
+const newImg = document.createElement('img');
+newImg.src = 'img/woman_bw.jpg';
+document.querySelector('header').appendChild(newImg);
 
 ////////////////////////////////////////////////////////////////////////////
 // ¡Felicidades! ¡Has terminado el Nivel 3 de JavaScript Básico!          //
