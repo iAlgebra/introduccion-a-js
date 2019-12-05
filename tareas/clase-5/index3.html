@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clase 5</title>
+    <style>
+        p {
+            font-weight: bold;
+        }
+        div {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<form onsubmit="return false">
+    <p>Video #1</p>
+    <label for="hours-video-1">Hours:</label>
+    <input type="number" class="hour" id="hours-video-1" placeholder="2" min="0">
+    <label for="minutes-video-1">Minutes:</label>
+    <input type="number" class="minute" id="minutes-video-1" placeholder="34" min="0" max="59">
+    <label for="seconds-video-1">Seconds:</label>
+    <input type="number" class="second" id="seconds-video-1" placeholder="43" min="0" max="59">
+    <p>Video #2</p>
+    <label for="hours-video-2">Hours:</label>
+    <input type="number" class="hour" id="hours-video-2" placeholder="1" min="0">
+    <label for="minutes-video-2">Minutes:</label>
+    <input type="number" class="minute" id="minutes-video-2" placeholder="48" min="0" max="59">
+    <label for="seconds-video-2">Seconds:</label>
+    <input type="number" class="second" id="seconds-video-2" placeholder="24" min="0" max="59">
+    <p>Video #3</p>
+    <label for="hours-video-3">Hours:</label>
+    <input type="number" class="hour" id="hours-video-3" placeholder="0" min="0">
+    <label for="minutes-video-3">Minutes:</label>
+    <input type="number" class="minute" id="minutes-video-3" placeholder="47" min="0" max="59">
+    <label for="seconds-video-3">Seconds:</label>
+    <input type="number" class="second" id="seconds-video-3" placeholder="26" min="0" max="59">
+    <p>Video #4</p>
+    <label for="hours-video-4">Hours:</label>
+    <input type="number" class="hour" id="hours-video-4" placeholder="2" min="0">
+    <label for="minutes-video-4">Minutes:</label>
+    <input type="number" class="minute" id="minutes-video-4" placeholder="18" min="0" max="59">
+    <label for="seconds-video-4">Seconds:</label>
+    <input type="number" class="second" id="seconds-video-4" placeholder="45" min="0" max="59">
+    <p>Video #5</p>
+    <label for="hours-video-5">Hours:</label>
+    <input type="number" class="hour" id="hours-video-5" placeholder="2" min="0">
+    <label for="minutes-video-5">Minutes:</label>
+    <input type="number" class="minute" id="minutes-video-5" placeholder="40" min="0" max="59">
+    <label for="seconds-video-5">Seconds:</label>
+    <input type="number" class="second" id="seconds-video-5" placeholder="48" min="0" max="59">
+    <div class="button-wrapper">
+        <button id="calculate">Calculate</button>
+    </div>
+</form>
+<strong id="video-total-time">The video total time is <span id="total-hs">xx</span> hours, <span id="total-mn">xx</span> minutes and <span id="total-sc">xx</span> seconds.</strong>
+<script src="tarea-clase-5-mio3.js"></script>
+</body>
+</html>
