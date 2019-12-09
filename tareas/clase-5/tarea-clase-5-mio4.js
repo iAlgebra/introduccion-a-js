@@ -45,38 +45,25 @@ function findBiggestNumber(arr) {
     return biggest;
 }
 
-function findfrequentNumber(arr) {
-    const checking = arr[0];
-    let maxRepeats = 0;
-    let currentRepeats = 0;
-
-    console.log('number being checked is ' + arr[0]);
-
-    // count how many times the 1st element is repeated
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] === checking) {
-            currentRepeats++;
+function findFrequentNumber(arr) {
+    let mostFrequentNumberRepetitions = 0;
+    let mostFrequentNumber;
+    for (let i = 0; i < arr.length; i++) {
+        let numberBeingCheckedRepetitions = 0;
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                numberBeingCheckedRepetitions ++;
+            }
+        }
+        if (numberBeingCheckedRepetitions > mostFrequentNumberRepetitions) {
+            mostFrequentNumberRepetitions = numberBeingCheckedRepetitions;
+            mostFrequentNumber = arr[i];
         }
     }
-    
-    console.log('the number ' + arr[0] + ' repeats ' + currentRepeats + ' times');
-
-    if (currentRepeats > maxRepeats) {
-        maxRepeats = currentRepeats;
-    }
-
-/*    // delete that element which was checked, and every instance
-    for (let j = 0; j < arr.length; j++) {
-        if (arr[j] === checking) {
-            arr.splice(j, 1);
-        }
-    }*/
-
-    console.log('the array now looks like this ' + arr);
+    return mostFrequentNumber;
 }
 
 $average.textContent = calulateAverage(numbers);
 $smallest.textContent = findSmallestNumber(numbers);
 $biggest.textContent = findBiggestNumber(numbers);
-// $frequent.textContent = findfrequentNumber(numbers);
-findfrequentNumber(numbers);
+$frequent.textContent = findFrequentNumber(numbers);
