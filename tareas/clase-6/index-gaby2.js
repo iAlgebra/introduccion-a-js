@@ -11,18 +11,43 @@ Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como
 */
 
 const $addButton = document.querySelector('.add');
-$removeButton = document.querySelector('.remove');
-const $form = document.querySelector('#form');
+const $removeButton = document.querySelector('.remove');
+const $calculateButton = document.querySelector('.calculate');
 const $annualSalaryWrapper = document.querySelector('#annual-salary-wrapper');
+const $infoDisplay = document.querySelector('.info-display');
 let clicks = 0;
 
 $addButton.onclick = function() {
+  if ($annualSalaryWrapper.children.length === 0) {
+    $calculateButton.disabled = false;
+  }
   clicks++;
   createAnnualSalaryInput(clicks);
 };
 
 $removeButton.onclick = function() {
-  deleteAnnualSalaryInput();
+  if ($annualSalaryWrapper.children.length > 0) {
+    deleteAnnualSalaryInput();
+  }
+  if ($annualSalaryWrapper.children.length === 0) {
+    $calculateButton.disabled = true;
+    $infoDisplay.classList.add('hidden');
+  }
+};
+
+$calculateButton.onclick = function() {
+  if ($annualSalaryWrapper.children.length > 0) {
+    const MONTHS_IN_A_YEAR = 12;
+    const annualSalaryValues = collectValues();
+    const highestSalary = findBiggestNumber(annualSalaryValues);
+    const lowestSalary = findSmallestNumber(annualSalaryValues);
+    const averageAnnualSalary = calculateAverage(annualSalaryValues).toFixed(2);
+    const averageMonthlySalary = (calculateAverage(annualSalaryValues) /
+        MONTHS_IN_A_YEAR).toFixed(2);
+    modifyDOM(highestSalary, lowestSalary, averageAnnualSalary,
+        averageMonthlySalary);
+    $infoDisplay.classList.remove('hidden');
+  }
 };
 
 function createAnnualSalaryInput(clickNum) {
@@ -51,8 +76,29 @@ function createInput(clickNum) {
 }
 
 function deleteAnnualSalaryInput() {
-  if ($annualSalaryWrapper.children.length !== 0) {
-    clicks--;
-    $annualSalaryWrapper.lastElementChild.remove();
-  }
+  clicks--;
+  $annualSalaryWrapper.lastElementChild.remove();
+}
+
+function collectValues() {
+  const $annualSalaries = document.querySelectorAll(
+      '#annual-salary-wrapper input');
+  let annualSalaryValues = [];
+  $annualSalaries.forEach(function(annualSalary) {
+    annualSalaryValues.push(Number(annualSalary.value));
+  });
+  return annualSalaryValues;
+}
+
+function modifyDOM(highest, lowest, averageAnnual, averageMonthly) {
+  const $highestAnnualSalary = document.querySelector('.highest-annual-salary');
+  const $lowestAnnualSalary = document.querySelector('.lowest-annual-salary');
+  const $averageAnnualSalary = document.querySelector('.average-annual-salary');
+  const $averageMonthlySalary = document.querySelector(
+      '.average-monthly-salary');
+
+  $highestAnnualSalary.textContent = highest;
+  $lowestAnnualSalary.textContent = lowest;
+  $averageAnnualSalary.textContent = averageAnnual;
+  $averageMonthlySalary.textContent = averageMonthly;
 }
