@@ -85,7 +85,9 @@ function collectValues() {
       '#annual-salary-wrapper input');
   let annualSalaryValues = [];
   $annualSalaries.forEach(function(annualSalary) {
-    annualSalaryValues.push(Number(annualSalary.value));
+    if (annualSalary.value !== '') {
+      annualSalaryValues.push(Number(annualSalary.value));
+    }
   });
   return annualSalaryValues;
 }
