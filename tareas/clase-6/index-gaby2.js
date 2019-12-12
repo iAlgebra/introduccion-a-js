@@ -11,6 +11,7 @@ Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como
 */
 
 const $addButton = document.querySelector('.add');
+$removeButton = document.querySelector('.remove');
 const $form = document.querySelector('#form');
 const $annualSalaryWrapper = document.querySelector('#annual-salary-wrapper');
 let clicks = 0;
@@ -18,7 +19,11 @@ let clicks = 0;
 $addButton.onclick = function() {
   clicks++;
   createAnnualSalaryInput(clicks);
-}
+};
+
+$removeButton.onclick = function() {
+  deleteAnnualSalaryInput();
+};
 
 function createAnnualSalaryInput(clickNum) {
   const $label = createLabel(clickNum);
@@ -38,9 +43,16 @@ function createLabel(clickNum) {
 
 function createInput(clickNum) {
   const $input = document.createElement('input');
-  $input.id = `annual-salary-${clickNum}`
+  $input.id = `annual-salary-${clickNum}`;
   $input.type = 'number';
   $input.min = '0';
   $input.placeholder = 'Type your Annual Salary';
   return $input;
+}
+
+function deleteAnnualSalaryInput() {
+  if ($annualSalaryWrapper.children.length !== 0) {
+    clicks--;
+    $annualSalaryWrapper.lastElementChild.remove();
+  }
 }
