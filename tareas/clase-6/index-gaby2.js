@@ -53,14 +53,19 @@ $calculateButton.onclick = function() {
 function createAnnualSalaryInput(clickNum) {
   const $label = createLabel(clickNum);
   const $input = createInput(clickNum);
+
+  const $inputWrapper = addWrapperToInput($input);
+
   const $wrapper = document.createElement('div');
+  $wrapper.classList.add('form-group', 'row');
   $wrapper.appendChild($label);
-  $wrapper.appendChild($input);
+  $wrapper.appendChild($inputWrapper);
   $annualSalaryWrapper.appendChild($wrapper);
 }
 
 function createLabel(clickNum) {
   const $label = document.createElement('label');
+  $label.classList.add('col-sm-2', 'col-form-label', 'col-form-label-lg');
   $label.htmlFor = `annual-salary-${clickNum}`;
   $label.textContent = `Annual Salary #${clickNum}: `;
   return $label;
@@ -68,11 +73,19 @@ function createLabel(clickNum) {
 
 function createInput(clickNum) {
   const $input = document.createElement('input');
+  $input.classList.add('form-control', 'form-control-lg');
   $input.id = `annual-salary-${clickNum}`;
   $input.type = 'number';
   $input.min = '0';
   $input.placeholder = 'Type your Annual Salary';
   return $input;
+}
+
+function addWrapperToInput(input) {
+  const $wrapper = document.createElement('div');
+  $wrapper.classList.add('col-sm-10');
+  $wrapper.appendChild(input);
+  return $wrapper;
 }
 
 function deleteAnnualSalaryInput() {
